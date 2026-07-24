@@ -1,6 +1,6 @@
 # PDF Word Counter
 
-Takes in a **PDF**or group of **PDFs** and returns a CSV of the words in it, ranked by frequency.
+Takes in a **PDF** or group of **PDFs** and returns a CSV of the words in it, ranked by frequency.
 
 ## Terminology and Glossary
 
@@ -9,7 +9,7 @@ This text uses subtle terminology to distinguish things. Here is a legend so you
 - If the term "PDF" is in a code block (i.e. `PDF`), it is referring to the **FOLDER** named "PDF". Because it is defined  here exactly what `PDF` refers to, it is redundant to specify the folder afterward. Therefore, the word "folder" will be omitted. The same logic applies to `Images`.
 - If the term "PDF" is in bold, it is referring to the **FILE TYPE** named "PDF". This also applies to "CSV".
 - If a word is in quotes, it is referring to the **CONCEPT**, or, if paired with  a code block definition of `PDF`, the **LITERAL**. This same logic applies to `Images`.
-- If a word is referring to a proper noun, it will be in **BOLD**(i.e. **GitHub**).
+- If a word is referring to a proper noun, it will be in **BOLD** (i.e. **GitHub**).
 - If a word is referring to another file format such as ".jar", it will also be in `code blocks`.
 - If a word is in italics, this is simply emphasis, same as normal **English**.
 - The terms "lemmatize" and "lemmatizers" are talked about here. Definitions are presented for the just-discussed words and a few others since this is technical and semi-custom terminology:
@@ -23,7 +23,7 @@ This text uses subtle terminology to distinguish things. Here is a legend so you
 - If you're like me and feel strongly about the consistency of texts, like this one here, then I would explain that the reason I keep changing the terminology for how the words are sorted in the **CSV** is to *emphasize* the order of the words.
 - If present, footnotes will be presented at the bottom of a header section, compared to the bottom of the text to save on superscript characters used.
 - **BOLD** text on "verbs" like "*will*" and "*and*" can act as emphasis too, such as: "A **AND** B".
-- The `.jar` is the file in this same repository. Linked here. (**EDITORS NOTE YK THE DRILL**) It is the main way to access the code.
+- The `PDF extractor` is the folder in this same repository. Linked here. (**EDITORS NOTE YK THE DRILL**) It is the main way to access the code.
 - In the [**Benchmarks**](https://github.com/cheeesed123/PDF-Word-Counter/edit/main/README.md#benchmarks) section, "_" is used in the same way it is used in Java and TOML, to replace a comma when representing big numbers.
 
 ### T&G† Footnotes
@@ -52,10 +52,10 @@ This program works in the following manner:
 
 The installation of this is extremely easy.
 
-1. *Download*\* the files from **GitHub**. Any manner works as long as you get the `.jar` onto your local system.
-2. *Dedicate* a folder on your computer to it; the name doesn't matter.
-3. *Place* the `.jar` inside of it. This is now the `.jar`'s parent folder.
-4. *Run* the `.jar` through the terminal of your choice. (I assume you know how to use the terminal well enough to run a `.jar` if you're on **GitHub**.)
+1. *Download*\* the files from **GitHub**. Any manner works as long as you get the `PDF extractor` onto your local system.
+2. *Dedicate* a folder on your computer to it; the name doesn't matter, or simply use the provided folder.
+3. *Package* the **Maven** project to a `.jar`, or just `compile` it there.
+4. *Run* the `.jar` through the terminal of your choice. (I assume you know how to use terminal well enough to run a `.jar` if you're on **GitHub**.)
 
 **Upon first run in a new parent folder, the program will generate its folders for use and exit.**
 
@@ -91,15 +91,15 @@ The benchmarks were conducted in the following procedure:
 
 5. The results were put into this table of 5 datapoints, with an extra average column beside it.\
 The "Time per page" is calculated by the average amount of time divided by the number of pages.
-Here is the table:\
-|Number of Pages | Trial 1 | Trial 2 | Trial 3 | Trial 4 | Trial 5 | Average | Time per page |\
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\
-| 50 | 5846.1 | 5519.6 | 5548.6 | 5690.0 | 5662.6 | 5653.38 | 113.07 |\
-| 100 | 6562.4 | 6772.0 | 6469.5 | 6550.8 | 6286.1 | 6528.16 | 65.28 |\
-| 500 | 11719.3 | 13096.0 | 12763.8 | 13022.5 | 12136.0 | 12547.52 | 25.10 |\
-| 1,000 | 19563.8 | 20149.0 | 19158.2 | 19735.2 | 18995.3 | 19520.3 | 19.52 |\
-| 5,000 | 71970.0 | 70482.4 | 72101.8 | 72821.3 | 71268.3 | 71728.76 | 14.35 |\
-| 50,000 | 645452.4 | 666337.0 | 742344.1 | 668428.9 | 792007.0 | 702913.88 | 14.06 |\
+Here is the table:
+|Number of Pages | Trial 1 | Trial 2 | Trial 3 | Trial 4 | Trial 5 | Average | Time per page |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 50 | 5846.1 | 5519.6 | 5548.6 | 5690.0 | 5662.6 | 5653.38 | 113.07 |
+| 100 | 6562.4 | 6772.0 | 6469.5 | 6550.8 | 6286.1 | 6528.16 | 65.28 |
+| 500 | 11719.3 | 13096.0 | 12763.8 | 13022.5 | 12136.0 | 12547.52 | 25.10 |
+| 1,000 | 19563.8 | 20149.0 | 19158.2 | 19735.2 | 18995.3 | 19520.3 | 19.52 |
+| 5,000 | 71970.0 | 70482.4 | 72101.8 | 72821.3 | 71268.3 | 71728.76 | 14.35 |
+| 50,000 | 645452.4 | 666337.0 | 742344.1 | 668428.9 | 792007.0 | 702913.88 | 14.06 |
 | All | 715822.9 | 710414.9 | 746100.5 | 771115.9 | 774651.9 | 743621.22 | 13.13 |
 
 I would also like to note that, while the code for generating the benchmark PDFs is attached here, I did not bother to comment it. I do not plan to take the time to, but if you need it, just email me, and I will give you a breakdown of it. Here is a chart of the number of pages vs. the time per page, with a power trendline as well.
