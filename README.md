@@ -23,7 +23,7 @@ This text uses subtle terminology to distinguish things. Here is a legend so you
 - If you're like me and feel strongly about the consistency of texts, like this one here, then I would explain that the reason I keep changing the terminology for how the words are sorted in the **CSV** is to *emphasize* the order of the words.
 - If present, footnotes will be presented at the bottom of a header section, compared to the bottom of the text to save on superscript characters used.
 - **BOLD** text on "verbs" like "*will*" and "*and*" can act as emphasis too, such as: "A **AND** B".
-- The `PDF extractor` is the folder in this same repository. Linked here. (**EDITORS NOTE YK THE DRILL**) It is the main way to access the code.
+- The `PDF extractor` is the folder in this same repository. [Linked here.](https://github.com/cheeesed123/PDF-Word-Counter/tree/main/src/main/java/org/ChiefGuy)
 - In the [**Benchmarks**](https://github.com/cheeesed123/PDF-Word-Counter/edit/main/README.md#benchmarks) section, "_" is used in the same way it is used in Java and TOML, to replace a comma when representing big numbers.
 
 ### T&G† Footnotes
@@ -41,8 +41,9 @@ This program works in the following manner:
 
     - Return the count of the most common lemmatized form of the words in the **PDF**.
     - Download all* of the images in the **PDF** into `Images` as `.png`s.
-4. The program will then move on to the next **PDF** and repeat step 3 until all **PDF**s in `PDF` have been
-5
+4. The program will then move on to the next **PDF** and repeat step 3 until all **PDF**s in `PDF` have been processed.
+5. It will then make a **CSV** of all of the words, with their respective counts.
+
 
 ### A&P Footnotes
 
@@ -55,7 +56,7 @@ The installation of this is extremely easy.
 1. *Download*\* the files from **GitHub**. Any manner works as long as you get the `PDF extractor` onto your local system.
 2. *Dedicate* a folder on your computer to it; the name doesn't matter, or simply use the provided folder.
 3. *Package* the **Maven** project to a `.jar`, or just `compile` it there.
-4. *Run* the `.jar` through the terminal of your choice. (I assume you know how to use terminal well enough to run a `.jar` if you're on **GitHub**.)
+4. *Run* the `.jar` through the terminal of your choice. (I assume you know how to use the terminal well enough to run a `.jar` if you're on **GitHub**.)
 
 **Upon first run in a new parent folder, the program will generate its folders for use and exit.**
 
@@ -75,7 +76,7 @@ The items generated are as follows:
 The benchmarks were conducted in the following procedure:
 
 1. The `wordAmounts.csv` data was gathered from one copy of the linked **PowerShell** **PDF** up above.
-2. A second **Java** script, attached in the `.zip`, took the data, parsed it, and generated **PDFs** that were completely random. The generator accounts for the weight of the words and decreases the weight as time progresses, similar to a "bag of marbles" scenario. This was done with a "Fenwick Tree" and **iText**.
+2. A second **Java** script, located in the other branch, took the data, parsed it, and generated **PDFs** that were completely random. The generator accounts for the weight of the words and decreases the weight as time progresses, similar to a "bag of marbles" scenario. This was done with a "Fenwick Tree" and **iText**.
 3. The program was run on these **PDFs** in the categories of: 50, 100, 500, 1_000, 5_000, 50_000 pages, and all of these together sequentially. The **PDFs** were the same for every trial.
 4. The time taken was calculated by **PowerShell**. Here is the full program's code:
 
