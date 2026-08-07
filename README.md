@@ -31,6 +31,43 @@ This text uses subtle terminology to distinguish things. Here is a legend so you
 **\***: It's technically possible a chunk could be one singular word, therefore making words incorrect. This is because, if the last remaining words of the text do not fit into a chunk, they're simply dumped into the queue to ensure they're processed.\
 **†**: Despite being unnecessary, I chose to shorten this footnote name down through an abbreviation for succinctness. You may see this occur in other places in this text as well.
 
+## Benchmarks
+
+The benchmarks were conducted in the following procedure:
+
+1. The `wordAmounts.csv` data was gathered from one copy of the linked **PowerShell** **PDF** up above.
+2. A second **Java** script, located in the other branch, took the data, parsed it, and generated **PDFs** that were completely random. The generator accounts for the weight of the words and decreases the weight as time progresses, similar to a "bag of marbles" scenario. This was done with a "Fenwick Tree" and **iText**.
+3. The program was run on these **PDFs** in the categories of: 50, 100, 500, 1_000, 5_000, 50_000 pages, and all of these together sequentially. The **PDFs** were the same for every trial.
+4. The time taken was calculated by **PowerShell**. Here is the full program's code:
+
+      ``` (PowerShell)
+      $time = Measure-Command { 
+          mvn clean compile exec:java "-Dexec.mainClass=org.ChiefGuy.Main" -e | Out-Host
+      }
+      
+      # Display time performance
+      $time
+      
+      ```
+
+5. The results were put into this table of 5 datapoints, with an extra average column beside it.\
+The "Time per page" is calculated by the average amount of time divided by the number of pages. The time is measured in milliseconds.
+Here is the table:
+
+|Number of Pages | Trial 1 | Trial 2 | Trial 3 | Trial 4 | Trial 5 | Average | Time per page |
+| ---: | :---: | :---: | :---: | :---: | :---: | :---: | --- |
+| 50 | 5846.1 | 5519.6 | 5548.6 | 5690.0 | 5662.6 | 5653.38 | 113.07 |
+| 100 | 6562.4 | 6772.0 | 6469.5 | 6550.8 | 6286.1 | 6528.16 | 65.28 |
+| 500 | 11719.3 | 13096.0 | 12763.8 | 13022.5 | 12136.0 | 12547.52 | 25.10 |
+| 1,000 | 19563.8 | 20149.0 | 19158.2 | 19735.2 | 18995.3 | 19520.3 | 19.52 |
+| 5,000 | 71970.0 | 70482.4 | 72101.8 | 72821.3 | 71268.3 | 71728.76 | 14.35 |
+| 50,000 | 645452.4 | 666337.0 | 742344.1 | 668428.9 | 792007.0 | 702913.88 | 14.06 |
+| All | 715822.9 | 710414.9 | 746100.5 | 771115.9 | 774651.9 | 743621.22 | 13.13 |
+
+I would also like to note that, while the code for generating the benchmark PDFs is attached here, I did not bother to comment it. I do not plan to take the time to, but if you need it, just email me, and I will give you a breakdown of it. Here is a chart of the number of pages vs. the time per page, with a power trendline as well.
+
+<img width="2966" height="1599" alt="Chart showing relationship between length of PDF and time taken per page." src="https://github.com/user-attachments/assets/062c849a-85a7-4ad4-986d-d44fd51ce7b5" />
+
 ## Abstract and Process
 
 This program works in the following manner:
@@ -70,43 +107,6 @@ The items generated are as follows:
 ### Installation Footnotes
 
 **\***: The beginning word of each enumerated item is italicized for appearance and emphasis, but primarily for appearance.
-
-## Benchmarks
-
-The benchmarks were conducted in the following procedure:
-
-1. The `wordAmounts.csv` data was gathered from one copy of the linked **PowerShell** **PDF** up above.
-2. A second **Java** script, located in the other branch, took the data, parsed it, and generated **PDFs** that were completely random. The generator accounts for the weight of the words and decreases the weight as time progresses, similar to a "bag of marbles" scenario. This was done with a "Fenwick Tree" and **iText**.
-3. The program was run on these **PDFs** in the categories of: 50, 100, 500, 1_000, 5_000, 50_000 pages, and all of these together sequentially. The **PDFs** were the same for every trial.
-4. The time taken was calculated by **PowerShell**. Here is the full program's code:
-
-      ``` (PowerShell)
-      $time = Measure-Command { 
-          mvn clean compile exec:java "-Dexec.mainClass=org.ChiefGuy.Main" -e | Out-Host
-      }
-      
-      # Display time performance
-      $time
-      
-      ```
-
-5. The results were put into this table of 5 datapoints, with an extra average column beside it.\
-The "Time per page" is calculated by the average amount of time divided by the number of pages. The time is measured in milliseconds.
-Here is the table:
-
-|Number of Pages | Trial 1 | Trial 2 | Trial 3 | Trial 4 | Trial 5 | Average | Time per page |
-| ---: | :---: | :---: | :---: | :---: | :---: | :---: | --- |
-| 50 | 5846.1 | 5519.6 | 5548.6 | 5690.0 | 5662.6 | 5653.38 | 113.07 |
-| 100 | 6562.4 | 6772.0 | 6469.5 | 6550.8 | 6286.1 | 6528.16 | 65.28 |
-| 500 | 11719.3 | 13096.0 | 12763.8 | 13022.5 | 12136.0 | 12547.52 | 25.10 |
-| 1,000 | 19563.8 | 20149.0 | 19158.2 | 19735.2 | 18995.3 | 19520.3 | 19.52 |
-| 5,000 | 71970.0 | 70482.4 | 72101.8 | 72821.3 | 71268.3 | 71728.76 | 14.35 |
-| 50,000 | 645452.4 | 666337.0 | 742344.1 | 668428.9 | 792007.0 | 702913.88 | 14.06 |
-| All | 715822.9 | 710414.9 | 746100.5 | 771115.9 | 774651.9 | 743621.22 | 13.13 |
-
-I would also like to note that, while the code for generating the benchmark PDFs is attached here, I did not bother to comment it. I do not plan to take the time to, but if you need it, just email me, and I will give you a breakdown of it. Here is a chart of the number of pages vs. the time per page, with a power trendline as well.
-
-<img width="2966" height="1599" alt="Chart showing relationship between length of PDF and time taken per page." src="https://github.com/user-attachments/assets/062c849a-85a7-4ad4-986d-d44fd51ce7b5" />
 
 ## Methodology and Implementation
 
