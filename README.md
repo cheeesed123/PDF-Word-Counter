@@ -93,6 +93,7 @@ The benchmarks were conducted in the following procedure:
 5. The results were put into this table of 5 datapoints, with an extra average column beside it.\
 The "Time per page" is calculated by the average amount of time divided by the number of pages.
 Here is the table:
+
 |Number of Pages | Trial 1 | Trial 2 | Trial 3 | Trial 4 | Trial 5 | Average | Time per page |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 50 | 5846.1 | 5519.6 | 5548.6 | 5690.0 | 5662.6 | 5653.38 | 113.07 |
